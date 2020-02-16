@@ -1,3 +1,43 @@
-<p>
-  container-history works!
-</p>
+<div *ngIf="containerInfo">
+  <div style="display: flex; flex-flow: row nowrap;">
+    <p>Серийный номер : <span>{{containerInfo.id}}</span></p>
+    <p>Владелец : <span>{{containerInfo.owner}}</span></p>
+  </div>
+  <mat-table *ngIf="containerInfo.history && containerInfo.history.length" [dataSource]="containerInfo.history" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="dateFrom">
+      <mat-header-cell *matHeaderCellDef class="table-header-template">Дата отправления</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dateFrom}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="dateTo">
+      <mat-header-cell *matHeaderCellDef class="table-header-template">Дата прибытия</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.dateTo}}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="sourcePort">
+      <mat-header-cell *matHeaderCellDef class="table-header-template">Порт отправления</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sourcePort}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="destinationPort">
+      <mat-header-cell *matHeaderCellDef class="table-header-template">Порт прибытия</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.destinationPort}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sender">
+      <mat-header-cell *matHeaderCellDef class="table-header-template">Отправитель</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sender}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="recipient">
+      <mat-header-cell *matHeaderCellDef class="table-header-template">Получатель</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.recipient}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

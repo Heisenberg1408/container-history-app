@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { ContainerModule } from './container/container.module';
+import { AppMaterialModule } from './app.material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -12,11 +14,12 @@ import { ContainerModule } from './container/container.module';
     AppComponent
   ],
   imports: [
+    AppMaterialModule,
+    HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     ContainerModule,
-    BrowserAnimationsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

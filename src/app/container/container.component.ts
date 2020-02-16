@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContainerService } from './container.service';
+import { ContainerInfo } from '../../entities/container.info';
 
 @Component({
   selector: 'app-container',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainerComponent implements OnInit {
 
-  constructor() { }
+  public serialNumber = '';
+  public containerInfo: ContainerInfo;
+
+  constructor(
+    private readonly containerService: ContainerService
+  ) { }
 
   ngOnInit() {
+  }
+
+  public searchContainerInfo() {
+    this.containerService.getContainerHistory(this.serialNumber).subscribe((containerInfo) => {
+      this.containerInfo = containerInfo;
+    });
+  }
+
+  public resetNumber() {
+    this.serialNumber = '';
   }
 
 }
