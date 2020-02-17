@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-import { ContainerInfo } from '../../entities/container.info';
+import { ContainerInfo } from '../../global/entities/container.info';
 
 @Injectable()
 export class ContainerService {

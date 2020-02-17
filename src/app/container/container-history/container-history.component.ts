@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ContainerInfo } from '../../../entities/container.info';
-import { TableColumn } from '@swimlane/ngx-datatable';
+import { ContainerInfo } from '../../../global/entities/container.info';
 
 @Component({
   selector: 'app-container-history',
@@ -12,18 +11,7 @@ export class ContainerHistoryComponent implements OnInit {
   @Input()
   containerInfo: ContainerInfo;
 
-  public columnsDef: TableColumn[] = new Array();
-
-  constructor() {
-    this.columnsDef = [
-      {prop: 'dateFrom', name: 'Дата отправления', width: 100, sortable: false},
-      {prop: 'dateTo', name: 'Дата прибытия', width: 100, sortable: false},
-      {prop: 'sourcePort', name: 'Порт отправления', width: 100, sortable: false},
-      {prop: 'destinationPort', name: 'Порт прибытия', width: 100, sortable: false},
-      {prop: 'sender', name: 'Отправитель', width: 100, sortable: false},
-      {prop: 'recipient', name: 'Получатель', width: 100, sortable: false}
-    ]
-   }
+  constructor() {}
 
   ngOnInit() {
   }

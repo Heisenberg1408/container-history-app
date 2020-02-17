@@ -1,4 +1,4 @@
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ControlNumberService } from './../../global/services/control.number.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,14 +10,16 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    NgxDatatableModule
+    FormsModule
   ],
   declarations: [
     ContainerComponent,
     ContainerHistoryComponent
   ],
   exports: [ContainerComponent],
-  providers: [ContainerService]
+  providers: [
+    ContainerService,
+    ControlNumberService
+  ]
 })
 export class ContainerModule { }

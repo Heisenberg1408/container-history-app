@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContainerService } from './container.service';
-import { ContainerInfo } from '../../entities/container.info';
+import { ContainerInfo } from '../../global/entities/container.info';
 
 @Component({
   selector: 'app-container',
