@@ -1,9 +1,19 @@
-<p>Для поиска истории контейнера введите его номер</p>
-<div>
-  <mat-form-field>
-    <input [(ngModel)]="serialNumber" matInput placeholder="Серийный номер контейнера"/>
-  </mat-form-field>
-  <button mat-raised-button [color]="'primary'" (click)="searchContainerInfo()">Поиск</button>
-  <button mat-raised-button [color]="'warn'" (click)="resetNumber()">Очистить</button>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12">
+      <h5><i>Для поиска истории контейнера введите его номер:</i></h5>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-6">
+      <input type="text" class="form-control" [(ngModel)]="serialNumber" placeholder="Серийный номер контейнера"/>
+    </div>
+    <div class="col-6">
+      <div class="mt-0">
+        <button type="button" class="btn btn-primary" (click)="searchContainerInfo()">Поиск</button>
+        <button type="button" class="btn btn-danger" (click)="resetNumber()">Очистить</button>
+      </div>
+    </div>
+  </div>
+  <app-container-history [containerInfo]="containerInfo"></app-container-history>
 </div>
-<app-container-history [containerInfo]="containerInfo"></app-container-history>

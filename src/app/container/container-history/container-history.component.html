@@ -1,43 +1,37 @@
-<div *ngIf="containerInfo">
-  <div style="display: flex; flex-flow: row nowrap;">
-    <p>Серийный номер : <span>{{containerInfo.id}}</span></p>
-    <p>Владелец : <span>{{containerInfo.owner}}</span></p>
+<div class="row mt-5" *ngIf="containerInfo">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Дата отправления</th>
+            <th scope="col">Дата прибытия</th>
+            <th scope="col">Порт отправки</th>
+            <th scope="col">Порт назначения</th>
+            <th scope="col">Отправитель</th>
+            <th scope="col">Получатель</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let h of containerInfo.history">
+            <td>{{h.dateFrom}}</td>
+            <td>{{h.dateTo}}</td>
+            <td>{{h.sourcePort}}</td>
+            <td>{{h.destinationPort}}</td>
+            <td>{{h.sender}}</td>
+            <td>{{h.recipient}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- <ngx-datatable class="bootstrap" *ngIf="containerInfo.history && containerInfo.history.length"
+      [rows]="containerInfo.history"
+      [columns]="columnsDef"
+      [columnMode]="'flex'"
+      [headerHeight]="40"
+      [rowHeight]="40"
+      [scrollbarH]="true"
+      [scrollbarV]="true">
+    </ngx-datatable> -->
   </div>
-  <mat-table *ngIf="containerInfo.history && containerInfo.history.length" [dataSource]="containerInfo.history" class="mat-elevation-z8">
-
-    <ng-container matColumnDef="dateFrom">
-      <mat-header-cell *matHeaderCellDef class="table-header-template">Дата отправления</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.dateFrom}} </mat-cell>
-    </ng-container>
-
-
-    <ng-container matColumnDef="dateTo">
-      <mat-header-cell *matHeaderCellDef class="table-header-template">Дата прибытия</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.dateTo}}</mat-cell>
-    </ng-container>
-
-
-    <ng-container matColumnDef="sourcePort">
-      <mat-header-cell *matHeaderCellDef class="table-header-template">Порт отправления</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.sourcePort}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="destinationPort">
-      <mat-header-cell *matHeaderCellDef class="table-header-template">Порт прибытия</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.destinationPort}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="sender">
-      <mat-header-cell *matHeaderCellDef class="table-header-template">Отправитель</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.sender}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="recipient">
-      <mat-header-cell *matHeaderCellDef class="table-header-template">Получатель</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.recipient}} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
 </div>
