@@ -1,16 +1,21 @@
-import { ControlNumberService } from './../../global/services/control.number.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { ContainerComponent } from './container.component';
 import { ContainerHistoryComponent } from './container-history/container-history.component';
 import { ContainerService } from './container.service';
-import { FormsModule } from '@angular/forms';
+import { ControlNumberModule } from '../../global/modules/control.number.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ControlNumberModule
   ],
   declarations: [
     ContainerComponent,
@@ -18,8 +23,7 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [ContainerComponent],
   providers: [
-    ContainerService,
-    ControlNumberService
+    ContainerService
   ]
 })
 export class ContainerModule { }
