@@ -6,7 +6,8 @@
   </div>
   <div class="row mt-4">
     <div class="col-6">
-      <input type="text" class="form-control" [(ngModel)]="serialNumber" placeholder="Серийный номер контейнера"/>
+      <input type="text" class="form-control" appUppercase
+      [(ngModel)]="serialNumber" placeholder="Маркировочный номер контейнера" mask="SSSS0000000"/>
     </div>
     <div class="col-6">
       <div class="mt-0">
@@ -15,5 +16,5 @@
       </div>
     </div>
   </div>
-  <app-container-history [containerInfo]="containerInfo"></app-container-history>
+  <app-container-history [containerInfo]="containerInfo" [isDataLoading]="isDataLoading"></app-container-history>
 </div>

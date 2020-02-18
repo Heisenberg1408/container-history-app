@@ -10,6 +10,8 @@ export class ContainerHistoryComponent implements OnInit {
 
   @Input()
   containerInfo: ContainerInfo;
+  @Input()
+  isDataLoading: boolean;
 
   constructor() {}
 

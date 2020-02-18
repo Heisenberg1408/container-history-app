@@ -7,19 +7,21 @@ import { ContainerHistoryComponent } from './container-history/container-history
 import { ContainerService } from './container.service';
 import { ControlNumberModule } from '../../global/modules/control.number.module';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
+import { UpperCaseDirective } from '../../global/directives/uppercase.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxMaskModule.forRoot(),
     ControlNumberModule
   ],
   declarations: [
     ContainerComponent,
-    ContainerHistoryComponent
+    ContainerHistoryComponent,
+    UpperCaseDirective
   ],
   exports: [ContainerComponent],
   providers: [

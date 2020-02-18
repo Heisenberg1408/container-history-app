@@ -1,37 +1,43 @@
-<div class="row mt-5" *ngIf="containerInfo">
-  <div class="col-12">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Дата отправления</th>
-            <th scope="col">Дата прибытия</th>
-            <th scope="col">Порт отправки</th>
-            <th scope="col">Порт назначения</th>
-            <th scope="col">Отправитель</th>
-            <th scope="col">Получатель</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let h of containerInfo.history">
-            <td>{{h.dateFrom}}</td>
-            <td>{{h.dateTo}}</td>
-            <td>{{h.sourcePort}}</td>
-            <td>{{h.destinationPort}}</td>
-            <td>{{h.sender}}</td>
-            <td>{{h.recipient}}</td>
-          </tr>
-        </tbody>
-      </table>
+<div *ngIf="isDataLoading && !containerInfo" class="mt-5 d-flex justify-content-center">
+  <div class="spinner-border large-spinner" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="mt-5" *ngIf="containerInfo">
+  <div class="row">
+    <div class="col-lg-3 col-7">
+    <p><strong>Контейнер № </strong><span>{{containerInfo.id}}</span></p>
     </div>
-    <!-- <ngx-datatable class="bootstrap" *ngIf="containerInfo.history && containerInfo.history.length"
-      [rows]="containerInfo.history"
-      [columns]="columnsDef"
-      [columnMode]="'flex'"
-      [headerHeight]="40"
-      [rowHeight]="40"
-      [scrollbarH]="true"
-      [scrollbarV]="true">
-    </ngx-datatable> -->
+    <div class="col-lg-3 col-5">
+      <p><strong>Владелец : </strong><span>{{containerInfo.owner}}</span></p>
+      </div>
+  </div>
+  <div class="row mt-3" *ngIf="containerInfo">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Дата отправления</th>
+              <th scope="col">Дата прибытия</th>
+              <th scope="col">Порт отправки</th>
+              <th scope="col">Порт назначения</th>
+              <th scope="col">Отправитель</th>
+              <th scope="col">Получатель</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let h of containerInfo.history">
+              <td>{{h.dateFrom}}</td>
+              <td>{{h.dateTo}}</td>
+              <td>{{h.sourcePort}}</td>
+              <td>{{h.destinationPort}}</td>
+              <td>{{h.sender}}</td>
+              <td>{{h.recipient}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
