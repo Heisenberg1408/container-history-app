@@ -1,5 +1,4 @@
-import { Directive, OnInit, ElementRef, HostListener } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appUppercase]'
@@ -20,7 +19,7 @@ export class UpperCaseDirective {
 
     if (!this.lastValue || (this.lastValue && $event.target.value.length > 0 && this.lastValue !== $event.target.value)) {
       this.lastValue = this.ref.nativeElement.value = $event.target.value;
-      // Propagation
+
       const evt = document.createEvent('HTMLEvents');
       evt.initEvent('input', false, true);
       event.target.dispatchEvent(evt);
