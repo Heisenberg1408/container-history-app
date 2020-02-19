@@ -6,7 +6,7 @@ import { ContainerComponent } from './container.component';
 import { ContainerHistoryComponent } from './container-history/container-history.component';
 import { ContainerService } from './container.service';
 import { ControlNumberModule } from '../../global/modules/control.number.module';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { NgxMaskModule } from 'ngx-mask';
 import { UpperCaseDirective } from '../../global/directives/uppercase.directive';
 
@@ -14,8 +14,8 @@ import { UpperCaseDirective } from '../../global/directives/uppercase.directive'
   imports: [
     CommonModule,
     FormsModule,
-    ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),
+    ToastModule.forRoot(),
     ControlNumberModule
   ],
   declarations: [
