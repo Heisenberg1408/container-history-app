@@ -7,13 +7,18 @@
   <div class="row mt-4">
     <div class="col-6">
       <input type="text" class="form-control" appUppercase
-      [(ngModel)]="serialNumber" placeholder="Маркировочный номер контейнера" mask="SSSS0000000"/>
+      [(ngModel)]="serialNumber" placeholder="Маркировочный номер" mask="SSSS0000000"/>
     </div>
     <div class="col-6">
       <div class="mt-0">
         <button type="button" class="btn btn-primary" (click)="searchContainerInfo()">Поиск</button>
         <button type="button" class="btn btn-danger" (click)="resetNumber()">Очистить</button>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-12">
+      <i class="info-label"><i>(4 латинские заглавные буквы и 7 цифр)</i></i>
     </div>
   </div>
   <app-container-history [containerInfo]="containerInfo" [isDataLoading]="isDataLoading"></app-container-history>

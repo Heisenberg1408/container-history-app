@@ -2,7 +2,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ContainerService } from './container.service';
 import { ContainerInfo } from '../../global/entities/container.info';
 import { ControlNumberService } from '../../global/services/control.number.service';
-import { ToastsManager } from 'ng2-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-container',
@@ -20,12 +20,11 @@ export class ContainerComponent implements OnInit {
     private readonly controlNumberService: ControlNumberService,
     private readonly toastr: ToastsManager,
     private readonly vcf: ViewContainerRef
-    // private readonly toastService: ToastrService
   ) {
-    this.toastr.setRootViewContainerRef(vcf);
-   }
+  }
 
   ngOnInit() {
+    this.toastr.setRootViewContainerRef(this.vcf);
   }
 
   public searchContainerInfo() {
@@ -38,7 +37,7 @@ export class ContainerComponent implements OnInit {
           this.isDataLoading = false;
         });
       } else {
-        this.toastr.error('Incorrect container number', 'Error');
+        this.toastr.error('Неправильно введенный маркировочный номер', 'Ошибка');
       }
     });
 

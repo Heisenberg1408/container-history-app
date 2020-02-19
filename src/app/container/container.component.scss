@@ -1,5 +1,14 @@
+.info-label {
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
 @media (min-width: 480px) and (max-width: 560px) {
   h5 i {
     font-size: 1rem;
+  }
+
+  .info-label {
+    font-size: 0.75rem;
   }
 }
