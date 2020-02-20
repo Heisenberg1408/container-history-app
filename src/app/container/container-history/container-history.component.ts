@@ -9,6 +9,8 @@ import { ContainerInfo } from '../../../global/entities/container.info';
 export class ContainerHistoryComponent implements OnInit {
 
   @Input()
+  serialNumber: string;
+  @Input()
   containerInfo: ContainerInfo;
   @Input()
   isDataLoading: boolean;

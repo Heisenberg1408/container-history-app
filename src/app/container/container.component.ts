@@ -45,6 +45,7 @@ export class ContainerComponent implements OnInit {
 
   public resetNumber() {
     this.serialNumber = '';
+    this.containerInfo = null;
   }
 
 }
