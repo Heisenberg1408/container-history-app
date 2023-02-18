@@ -5,7 +5,7 @@ import { ControlNumberService } from '../services/control.number.service';
   providers: [ControlNumberService]
 })
 export class ControlNumberModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<ControlNumberModule> {
     return {
       ngModule: ControlNumberModule,
       providers: [ControlNumberService]

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { from } from 'rxjs/observable/from';
 import { CharNumberCode } from '../enums/char.numer.code';
-import { Observable } from 'rxjs/Observable';
 import { map, reduce } from 'rxjs/operators';
+import { from, Observable } from 'rxjs';
 
 @Injectable()
 export class ControlNumberService {
