@@ -3,7 +3,7 @@
     <span class="sr-only">Loading...</span>
   </div>
 </div>
-<div class="mt-5" *ngIf="containerInfo && serialNumber">
+<div [@fadeInOut] class="mt-5" *ngIf="containerInfo && serialNumber">
   <div class="row">
     <div class="col-lg-3 col-7">
     <p><strong>Контейнер № </strong><span>{{containerInfo.id}}</span></p>
@@ -17,7 +17,7 @@
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
-            <tr>
+            <tr [@animateRows]>
               <th scope="col">Дата отправления</th>
               <th scope="col">Дата прибытия</th>
               <th scope="col">Порт отправки</th>
@@ -27,7 +27,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let h of containerInfo.history">
+            <tr [@animateRows] *ngFor="let h of containerInfo.history">
               <td>{{h.dateFrom}}</td>
               <td>{{h.dateTo}}</td>
               <td>{{h.sourcePort}}</td>
