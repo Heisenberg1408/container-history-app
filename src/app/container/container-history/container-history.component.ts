@@ -10,16 +10,19 @@ import { ContainerInfo } from '../../../global/entities/container.info';
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
-        style({ opacity: 0}),
+
         group([
-          animate(500, style({opacity: 1})),
-          query('thead tr, tbody tr', stagger(100, animateChild()))
+          query('.row p', [
+            style({ opacity: 0}),
+            animate(500, style({opacity: 1}))
+          ]),
+          query('thead tr, tbody tr', stagger(50, animateChild()))
         ]),
       ]),
-      transition(':leave', [
-        style({ opacity: 1}),
-        animate(200, style({opacity: 0}))
-      ])
+      // transition(':leave', [
+      //   style({ opacity: 1}),
+      //   animate(200, style({opacity: 0}))
+      // ])
     ]),
     trigger('animateRows', [
       transition(':enter', [
